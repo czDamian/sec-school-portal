@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Memorial Grammar School Portal
 
-## Getting Started
+A modern web application for managing secondary school academic records, built with Next.js 15, Civic Auth and MongoDB.
 
-First, run the development server:
+## Overview
+
+This portal provides a comprehensive solution for secondary schools to manage student records, academic results, and administrative tasks. It features:
+
+- 🔐 Secure authentication system using Civic Auth
+- 👥 Student & admin dashboards
+- 📊 Academic result management
+- 📈 Performance analytics
+- 🎓 Student profiles
+- 🌐 Real-time updates
+
+## Technology Stack
+
+- **Frontend**: Next.js 15, TailwindCSS, React Icons
+- **Backend**: Next.js API Routes, MongoDB
+- **Authentication**: Civic Auth
+- **Database**: MongoDB
+- **Styling**: TailwindCSS
+
+## Authentication with Civic Auth
+
+This project uses Civic Auth for secure user authentication and authorization:
+
+### Features
+
+- Seamless user registration and login
+- Role-based access control (Student/Admin)
+- Secure session management
+- Protected API routes
+- Persistent user sessions
+
+### Implementation
+
+```javascript
+// Protected API Route Example
+import { getUser } from "@civic/auth/nextjs";
+
+export async function GET() {
+  const user = await getUser();
+  if (!user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  // Protected route logic
+}
+```
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/czDamian/sec-school-portal.git
+cd sec-school-portal
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up environment variables:
+
+```bash
+# .env.local
+MONGODB_URI=your_mongodb_uri
+CIVIC_CLIENT_ID=your_civic_client_id
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Use Cases
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### For Schools
 
-## Learn More
+- Digital result management
+- Student record keeping
+- Academic performance tracking
+- Administrative efficiency
 
-To learn more about Next.js, take a look at the following resources:
+### For Students
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Access academic results
+- View performance analytics
+- Track academic progress
+- Secure profile management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### For Parents
 
-## Deploy on Vercel
+- Monitor student performance
+- Access result history
+- Track academic growth
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Marketing Potential
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Target Market
+
+- Secondary Schools
+- Educational Institutions
+- School Management Systems
+- Educational Technology Providers
+
+### Value Proposition
+
+1. **Cost Efficiency**
+
+   - Reduce paperwork
+   - Minimize administrative overhead
+   - Streamline result processing
+
+2. **Time Saving**
+
+   - Instant result publication
+   - Automated calculations
+   - Bulk result uploads
+
+3. **Data Security**
+
+   - Secure authentication
+   - Role-based access
+   - Data encryption
+
+4. **Scalability**
+   - Handle multiple classes
+   - Support numerous students
+   - Expandable features
+
+### Competitive Advantages
+
+- Modern user interface
+- Real-time updates
+- Mobile responsive
+- Easy to use
+- Secure access
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For support, email support@schoolportal.com or join our Slack channel.
+
+## Acknowledgments
+
+- Next.js team for the amazing framework
+- Civic Auth for secure authentication
+- MongoDB for reliable database service
